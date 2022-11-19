@@ -1,0 +1,35 @@
+﻿
+@model List<WorkerlistViewModel>
+
+
+<div class="container">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">WorkerCode</th>
+                <th scope="col">Name</th>
+                <th scope="col">Surname</th>
+                <th scope="col">FatherName</th>
+
+            </tr>
+        </thead>
+        <tbody>
+          
+            @foreach (var wk in Model)
+            {
+                <tr>
+                    <th scope="row">1</th>
+                    <td>@wk.WorkerCode</td>
+                    <td>@wk.Name</td>
+                    <td>@wk.Surname</td>
+                    <td>@wk.FatherName</td>
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+</div>
+

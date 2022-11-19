@@ -1,0 +1,40 @@
+﻿@model AddViewModel
+
+<div class="container">
+    <div class="row justify-content-end">
+        <div class="">
+            <a asp-route="Worker-list" target="_blank" class="btn btn-secondary">Workers</a>
+        </div>
+    </div>
+    <form method="POST" asp-route="Worker-add">
+        <div class="form-group">
+            <label asp-for="WorkerCode"></label>
+            <input asp-for="WorkerCode" class="form-control">
+            <span asp-validation-for="WorkerCode" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control">
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-check">
+            <label asp-for="Surname"></label>
+            <input asp-for="Surname" class="form-control">
+            <span asp-validation-for="Surname" class="text-danger"></span>
+        </div>
+            <div class="form-check">
+            <label asp-for="FatherName"></label>
+            <input asp-for="FatherName" class="form-control">
+            <span asp-validation-for="FatherName" class="text-danger"></span>
+        </div>
+
+        <div class="form-check">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" class="form-control">
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
