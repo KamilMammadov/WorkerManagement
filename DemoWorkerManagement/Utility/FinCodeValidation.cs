@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using DemoWorkerManagement.Context;
+using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 
 namespace DemoWorkerManagement.Utility
@@ -7,9 +8,18 @@ namespace DemoWorkerManagement.Utility
     {
         protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
         {
-           Regex regex = new Regex(@"^[A-Z0-9]{7}$");
+            using DataContext dbcontext = new DataContext();
+            var workers = dbcontext.Workers.FirstOrDefault(w => w.FinCode==value.ToString());
 
-            if (value != null)
+         
+            if (workers != null)
+            {
+                return new ValidationResult("FinCode exists");
+            }
+
+            Regex regex = new Regex(@"^[A-Z0-9]{7}$");
+
+            if (value != null )
             {
                 string FinCode = value.ToString();
                 if (regex.IsMatch(FinCode))
