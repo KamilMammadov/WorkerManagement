@@ -8,14 +8,6 @@ namespace DemoWorkerManagement.Utility
     {
         protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
         {
-            using DataContext dbcontext = new DataContext();
-            var workers = dbcontext.Workers.FirstOrDefault(w => w.FinCode==value.ToString() && w.IsDeleted==false);
-
-         
-            if (workers != null)
-            {
-                return new ValidationResult("This FinCode is already exists ");
-            }
 
             Regex regex = new Regex(@"^[A-Z0-9]{7}$");
 
