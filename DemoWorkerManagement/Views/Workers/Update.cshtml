@@ -1,12 +1,13 @@
-﻿@model AddViewModel
+﻿
+@model UpdateViewModel
 
 <div class="container">
     <div class="row justify-content-end">
-        <div class="">
-            <a asp-route="Worker-list" target="_blank" class="btn btn-secondary">Workers</a>
-        </div>
     </div>
-    <form method="POST" asp-route="Worker-add">
+    <form method="POST" asp-route="Worker-update">
+        <div class="form-group">
+            <input asp-for="WorkerCode" type="hidden" class="form-control">
+        </div>
         <div class="form-group">
             <label asp-for="Name"></label>
             <input asp-for="Name" class="form-control">
@@ -17,17 +18,12 @@
             <input asp-for="Surname" class="form-control">
             <span asp-validation-for="Surname" class="text-danger"></span>
         </div>
-            <div class="form-check">
+        <div class="form-check">
             <label asp-for="FatherName"></label>
             <input asp-for="FatherName" class="form-control">
             <span asp-validation-for="FatherName" class="text-danger"></span>
         </div>
 
-        <div class="form-group">
-            <label asp-for="FinCode"></label>
-            <input asp-for="FinCode" class="form-control">
-            <span asp-validation-for="FinCode" class="text-danger"></span>
-        </div>
         <div class="form-check">
             <label asp-for="Email"></label>
             <input asp-for="Email" class="form-control">

@@ -1,7 +1,5 @@
 ﻿
 @model List<WorkerlistViewModel>
-
-
 <div class="container">
     <table class="table">
         <thead class="thead-dark">
@@ -11,23 +9,39 @@
                 <th scope="col">Name</th>
                 <th scope="col">Surname</th>
                 <th scope="col">FatherName</th>
-
+                <th scope="col">
+                      <div class="">
+                        <a asp-route="Worker-add" target="_blank" class="btn btn-secondary">Add Worker</a>
+                        </div>
+                </th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
           
             @foreach (var wk in Model)
             {
-                <tr>
-                    <th scope="row">1</th>
-                    <td>@wk.WorkerCode</td>
-                    <td>@wk.Name</td>
-                    <td>@wk.Surname</td>
-                    <td>@wk.FatherName</td>
-
-                </tr>
+                @if (wk.isDeleted==false)
+                {
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>@wk.WorkerCode</td>
+                        <td>@wk.Name</td>
+                        <td>@wk.Surname</td>
+                        <td>@wk.FatherName</td>
+                        <td>
+                            <div class="">
+                                <a asp-route="Worker-update-code" asp-route-workerCode="@wk.WorkerCode" class="btn btn-secondary btn-warning">Update Worker</a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="">
+                                <a asp-route="Worker-delete" asp-route-workerCode="@wk.WorkerCode" class="btn btn-secondary btn-danger">Delete Worker</a>
+                            </div>
+                        </td>
+                    </tr>
+                }  
             }
-
         </tbody>
     </table>
 
