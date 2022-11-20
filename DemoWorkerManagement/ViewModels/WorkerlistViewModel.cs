@@ -6,7 +6,7 @@
         public string Name { get; set; }
         public string Surname { get; set; }
         public string FatherName { get; set; }
-        public bool isDeleted { get; set; }
+        public bool IsDeleted { get; set; }
 
 
 
@@ -16,7 +16,7 @@
             Name = name;
             Surname = surname;
             FatherName = fatherName;
-            this.isDeleted = isDeleted;
+           IsDeleted = isDeleted;
         }
     }
 }
