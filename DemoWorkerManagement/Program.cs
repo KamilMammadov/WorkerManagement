@@ -1,3 +1,5 @@
+using DemoWorkerManagement.Context;
+
 namespace DemoWorkerManagement
 {
     public class Program
@@ -8,13 +10,15 @@ namespace DemoWorkerManagement
             builder.Services
                 .AddMvc();
 
+            builder.Services.AddDbContext<DataContext>();
+
             var app = builder.Build();
 
             app.UseStaticFiles();
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=home}/{action=index}");
+                pattern: "{controller=Worker}/{action=list}");
 
             app.Run();
         }

@@ -1,4 +1,4 @@
-﻿namespace WorkerManagement.ViewModels
+﻿namespace DemoWorkerManagement.ViewModels
 {
     public class WorkerlistViewModel
     {
@@ -6,14 +6,17 @@
         public string Name { get; set; }
         public string Surname { get; set; }
         public string FatherName { get; set; }
-       
+        public bool isDeleted { get; set; }
 
-        public WorkerlistViewModel(string workercode, string name, string surname, string fatherName)
+
+
+        public WorkerlistViewModel(string workercode, string name, string surname, string fatherName, bool isDeleted)
         {
             WorkerCode = workercode;
             Name = name;
             Surname = surname;
             FatherName = fatherName;
+            this.isDeleted = isDeleted;
         }
     }
 }
